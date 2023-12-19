@@ -1,4 +1,4 @@
-package com.pokeshop.pokemonshop.DTO;
+package com.pokeshop.pokemonshop.model;
 
 public class GameStyles {
     int id;

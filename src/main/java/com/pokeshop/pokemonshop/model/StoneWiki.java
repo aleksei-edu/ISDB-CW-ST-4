@@ -1,4 +1,4 @@
-package com.pokeshop.pokemonshop.DTO;
+package com.pokeshop.pokemonshop.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.pokeshop.pokemonshop.DTO;
+package com.pokeshop.pokemonshop.model;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Entities {
+public class PokemonTypes {
     @NotNull
     int id;
     @NotNull
-    WikiType wikiType;
+    String name;
 }
