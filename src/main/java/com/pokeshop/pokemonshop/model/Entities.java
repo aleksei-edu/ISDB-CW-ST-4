@@ -21,7 +21,8 @@ public class Entities {
     private int id;
 
     @Column(name="wikitype")
-    private String wikiType;
+    @Enumerated(EnumType.STRING)
+    private WikiTypes wikiType;
 
     @OneToOne(mappedBy = "entity", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn

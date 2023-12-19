@@ -19,11 +19,15 @@ public class Trainers {
     @Column(name="id")
     int id;
 
-    @Column(name="nickname")
-    String nickname;
+    @Column(name="firstname")
+    String firstname;
+
+    @Column(name="lastname")
+    String lastname;
 
     @Column(name="gender")
-    String gender;
+    @Enumerated(EnumType.STRING)
+    TrainersGender gender;
 
     @Column(name="level")
     int level;
@@ -41,4 +45,7 @@ public class Trainers {
 
     @OneToMany(mappedBy = "trainer")
     Set<Orders> orders;
+
+    @OneToOne(mappedBy = "trainer")
+    private User user;
 }
