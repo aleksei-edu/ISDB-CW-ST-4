@@ -1,33 +1,50 @@
 package com.pokeshop.pokemonshop.model;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="basestats")
 public class BaseStats {
-    @jakarta.persistence.Id
     @Id
     @NotNull
-    int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
+    private int id;
+
     @NotNull
-    int hp;
+    @Column(name="hp")
+    private int hp;
+
     @NotNull
-    int attack;
+    @Column(name="attack")
+    private int attack;
+
     @NotNull
-    int defense;
+    @Column(name="defense")
+    private int defense;
+
     @NotNull
-    int spAttack;
+    @Column(name="spattack")
+    private int spAttack;
+
     @NotNull
-    int spDefense;
+    @Column(name="spdefense")
+    private int spDefense;
+
     @NotNull
-    int speed;
+    @Column(name="speed")
+    private int speed;
+
+    @OneToOne(mappedBy = "baseStats")
+    private PokemonWiki pokemonWiki;
+
 }

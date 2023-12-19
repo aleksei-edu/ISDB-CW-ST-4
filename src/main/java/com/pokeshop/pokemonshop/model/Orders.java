@@ -1,11 +1,39 @@
 package com.pokeshop.pokemonshop.model;
 
-import java.util.Date;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.Date;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="orders")
 public class Orders {
+    @Id
+    @Column(name="id")
     int id;
+
+    @ManyToOne
+    @JoinColumn(name = "trainerid", referencedColumnName = "id")
     Trainers trainer;
+
+    @ManyToOne
+    @JoinColumn(name = "statusid", referencedColumnName = "id")
     OrderStatuses status;
+
+    @Column(name="totalprice")
     int totalPrice;
+
+    @Column(name="orderdate")
     Date orderDate;
+
+    @OneToMany(mappedBy = "order")
+    Set<OrderItems> orderItems;
 }
