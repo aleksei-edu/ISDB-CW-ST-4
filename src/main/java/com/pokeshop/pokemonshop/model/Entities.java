@@ -1,5 +1,6 @@
 package com.pokeshop.pokemonshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -32,7 +33,8 @@ public class Entities {
     @PrimaryKeyJoinColumn
     private StoneWiki stoneWiki;
 
-    @ManyToMany(mappedBy = "entities")
-    Set<Trainers> trainers;
+//    @JsonIgnore
+//    @ManyToMany(mappedBy = "entities")
+//    Set<Trainers> trainers;
 
 }

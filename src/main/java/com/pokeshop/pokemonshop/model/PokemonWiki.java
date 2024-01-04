@@ -1,5 +1,6 @@
 package com.pokeshop.pokemonshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -36,12 +37,16 @@ public class PokemonWiki {
     @Column(name = "weight")
     private float weight;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(name = "pokemonimagelink")
+    private String pokemonImageLink;
+
+    @OneToOne
     @JoinColumn(name = "basestatsid", referencedColumnName = "id")
     private BaseStats baseStats;
 
-    @OneToOne(mappedBy = "pokemonWiki")
-    Pokemon pokemon;
+//    @JsonIgnore
+//    @OneToOne(mappedBy = "pokemonWiki")
+//    Pokemon pokemon;
 
     @ManyToMany
     @JoinTable(
@@ -50,10 +55,12 @@ public class PokemonWiki {
             inverseJoinColumns = @JoinColumn(name = "pokemontypesid"))
     Set<PokemonTypes> pokemonTypes;
 
-    @OneToMany(mappedBy = "evolvingFrom")
-    Set<EvolutionChains> evolvingFrom;
-
-    @OneToMany(mappedBy = "evolvingTo")
-    Set<EvolutionChains> evolvingTo;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "evolvingFrom")
+//    Set<EvolutionChains> evolvingFrom;
+//
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "evolvingTo")
+//    Set<EvolutionChains> evolvingTo;
 
 }

@@ -1,6 +1,7 @@
 package com.pokeshop.pokemonshop.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -44,7 +45,8 @@ public class BaseStats {
     @Column(name="speed")
     private int speed;
 
-    @OneToOne(mappedBy = "baseStats")
-    private PokemonWiki pokemonWiki;
+//    @JsonIgnore
+//    @OneToOne(mappedBy = "baseStats")
+//    private PokemonWiki pokemonWiki;
 
 }

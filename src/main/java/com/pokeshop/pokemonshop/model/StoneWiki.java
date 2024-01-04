@@ -1,5 +1,6 @@
 package com.pokeshop.pokemonshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class StoneWiki {
     private int id;
 
     @OneToOne
+    @JsonIgnore
     @MapsId
     @JoinColumn(name = "entityid")
     private Entities entity;
@@ -24,6 +26,7 @@ public class StoneWiki {
     @Column(name = "name")
     String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "stoneWiki")
     Set<EvolutionChains> evolutionChains;
 }

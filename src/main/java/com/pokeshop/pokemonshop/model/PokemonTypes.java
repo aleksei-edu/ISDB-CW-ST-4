@@ -1,5 +1,6 @@
 package com.pokeshop.pokemonshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +27,8 @@ public class PokemonTypes {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(mappedBy = "pokemonTypes")
-    Set<PokemonWiki> pokemonWikis;
+//    @JsonIgnore
+//    @ManyToMany(mappedBy = "pokemonTypes")
+//    Set<PokemonWiki> pokemonWikis;
 
 }

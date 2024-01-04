@@ -19,6 +19,7 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @NotNull
+    @GeneratedValue
     private int id;
 
     @Column(name="username")

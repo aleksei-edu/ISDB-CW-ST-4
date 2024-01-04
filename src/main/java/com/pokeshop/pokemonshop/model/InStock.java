@@ -1,5 +1,6 @@
 package com.pokeshop.pokemonshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class InStock {
     @Column(name = "price")
     private int price;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "item")
     private Set<OrderItems> orderItems;
 }
