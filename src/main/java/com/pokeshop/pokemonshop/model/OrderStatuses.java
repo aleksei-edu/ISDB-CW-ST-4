@@ -9,22 +9,7 @@ import lombok.Setter;
 
 import java.util.Set;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Table(name="orderstatuses")
-public class OrderStatuses {
-    @Id
-    @Column(name="id")
-    int id;
-
-    @NotNull
-    @Column(name="name")
-    String name;
-
-    @OneToMany(mappedBy = "status")
-    Set<Orders> orders;
+public enum OrderStatuses {
+    PROCESSING, DONE, PAID, CANCELLED
 
 }

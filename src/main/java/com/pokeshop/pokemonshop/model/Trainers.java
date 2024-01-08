@@ -17,6 +17,7 @@ import java.util.Set;
 public class Trainers {
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     @Column(name="firstname")
@@ -36,16 +37,16 @@ public class Trainers {
     @JoinColumn(name = "gamestyleid", referencedColumnName = "id")
     GameStylesDist gameStyle;
 
-    @ManyToMany
-    @JoinTable(
-            name = "trainersentities",
-            joinColumns = @JoinColumn(name = "trainerid"),
-            inverseJoinColumns = @JoinColumn(name = "entityid"))
-    Set<Entities> entities;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "trainersentities",
+//            joinColumns = @JoinColumn(name = "trainerid"),
+//            inverseJoinColumns = @JoinColumn(name = "entityid"))
+//    Set<Entities> entities;
 
-    @OneToMany(mappedBy = "trainer")
-    Set<Orders> orders;
+//    @OneToMany(mappedBy = "trainer")
+//    Set<Orders> orders;
 
-    @OneToOne(mappedBy = "trainer")
-    private User user;
+//    @OneToOne(mappedBy = "trainer")
+//    private User user;
 }

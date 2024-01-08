@@ -1,5 +1,7 @@
 package com.pokeshop.pokemonshop.config;
 
+import com.pokeshop.pokemonshop.exception.UserAlreadyExistsException;
+import com.pokeshop.pokemonshop.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

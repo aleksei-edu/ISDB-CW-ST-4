@@ -35,6 +35,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "trainerid", referencedColumnName = "id")
     private Trainers trainer;
 
+    @OneToMany(mappedBy = "user")
+    private List<Orders> orders;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 

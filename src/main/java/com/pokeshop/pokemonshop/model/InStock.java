@@ -17,11 +17,14 @@ import java.util.Set;
 @Table(name = "instock")
 public class InStock {
     @Id
-    @Column(name = "id")
+    @Column(name = "entityid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "entityid", referencedColumnName = "id")
+    @OneToOne
+    @JsonIgnore
+    @MapsId
+    @JoinColumn(name = "entityid")
     private Entities entity;
 
     @Column(name = "quantity")
@@ -30,7 +33,4 @@ public class InStock {
     @Column(name = "price")
     private int price;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "item")
-    private Set<OrderItems> orderItems;
 }

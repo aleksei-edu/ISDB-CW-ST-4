@@ -8,10 +8,10 @@ import com.pokeshop.pokemonshop.exception.UserAlreadyExistsException;
 import com.pokeshop.pokemonshop.model.Role;
 import com.pokeshop.pokemonshop.model.User;
 import com.pokeshop.pokemonshop.repository.UserRepository;
+import com.pokeshop.pokemonshop.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +49,7 @@ public class AuthenticationService {
                 )
         );
         var user = repository.findByUsername(request.getUsername())
-                .orElseThrow(()->new UsernameNotFoundException(request.getUsername()));
+                .orElseThrow(()->new UserNotFoundException(request.getUsername()));
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)

@@ -24,7 +24,9 @@ public class OrderItems {
     @ManyToOne
     @MapsId("itemId")
     @JoinColumn(name = "itemid")
-    private InStock item;
+    private Entities item;
 
     private int quantity;
+
+    private int price;
 }

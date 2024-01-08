@@ -19,6 +19,7 @@ import java.util.Set;
 public class Entities {
     @Id
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name="wikitype")

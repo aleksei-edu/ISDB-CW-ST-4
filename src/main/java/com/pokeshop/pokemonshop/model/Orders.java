@@ -18,14 +18,15 @@ import java.util.Set;
 public class Orders {
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     @ManyToOne
-    @JoinColumn(name = "trainerid", referencedColumnName = "id")
-    Trainers trainer;
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    User user;
 
-    @ManyToOne
-    @JoinColumn(name = "statusid", referencedColumnName = "id")
+    @Column(name="status")
+    @Enumerated(EnumType.STRING)
     OrderStatuses status;
 
     @Column(name="totalprice")

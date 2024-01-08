@@ -21,6 +21,7 @@ public class PokemonTypes {
     @Id
     @NotNull
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull

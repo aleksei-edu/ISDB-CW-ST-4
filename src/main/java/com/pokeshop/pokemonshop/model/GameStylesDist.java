@@ -14,6 +14,7 @@ import lombok.Setter;
 @Table(name="gamestylesdist")
 public class GameStylesDist {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
 
@@ -32,6 +33,6 @@ public class GameStylesDist {
     @Column(name="specialtank")
     private int specialTank;
 
-    @OneToOne(mappedBy = "gameStyle")
-    Trainers trainer;
+//    @OneToOne(mappedBy = "gameStyle")
+//    Trainers trainer;
 }

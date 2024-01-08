@@ -16,6 +16,7 @@ import lombok.Setter;
 public class Pokemon {
     @Id
     @Column(name = "entityid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @OneToOne
     @JsonIgnore
